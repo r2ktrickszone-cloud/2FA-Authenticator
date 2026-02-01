@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2FA Authenticator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ===== JOIN SCREEN ===== -->
+<div id="joinScreen" class="box">
+  <h2>👋 Welcome</h2>
+  <p>Please join our channels</p>
+
+  <div class="icons">
+    <div onclick="openTelegram()">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
+      <p>Telegram</p>
+    </div>
+
+    <div onclick="openYouTube()">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+      <p>YouTube</p>
+    </div>
+  </div>
+
+  <button onclick="goApp()">Continue</button>
+</div>
+
+<!-- ===== 2FA SCREEN ===== -->
+<div id="appScreen" class="box" style="display:none;">
+  <h2>🔐 2FA Authenticator</h2>
+
+  <input id="secret" placeholder="Enter Secret Key">
+
+  <div id="code">000000</div>
+  <div id="time">30</div>
+
+  <button onclick="gen()">Generate & Copy</button>
+  <p id="msg"></p>
+</div>
+
+<script src="totp.js"></script>
+
+<script>
+function openTelegram(){
+  window.open("https://t.me/social_workars4","_blank");
+}
+
+function openYouTube(){
+  window.open("https://youtube.com/@karim_tech_zone","_blank");
+}
+
+function goApp(){
+  document.getElementById("joinScreen").style.display="none";
+  document.getElementById("appScreen").style.display="block";
+}
+</script>
+
+</body>
+</html>
